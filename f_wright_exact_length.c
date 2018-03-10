@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_ft_lettercount.c                                :+:      :+:    :+:   */
+/*   f_wright_exact_length.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmizin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 15:29:25 by nmizin            #+#    #+#             */
-/*   Updated: 2017/11/26 15:29:33 by nmizin           ###   ########.fr       */
+/*   Created: 2018/02/25 20:31:28 by nmizin            #+#    #+#             */
+/*   Updated: 2018/02/25 20:31:35 by nmizin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	my_ft_lettercount(char const *s, char c)
-{
-	int len;
-	int i;
+#include "libft.h"
 
-	len = 0;
-	i = 0;
-	while (*s)
-	{
-		if (*s == c)
-			i++;
-		else
-		{
-			len++;
-			i++;
-		}
-		s++;
-	}
-	return (len);
+int	f_w_e_l(char c, int length)
+{
+	int i;
+	char buff[length];
+
+	i = length;
+	while (length)
+		buff[--length] = c;
+	buff[i] = '\0';
+	write(1, &buff, i);
+	return (i);
 }

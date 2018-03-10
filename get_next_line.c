@@ -6,10 +6,10 @@
 t_list *f_multi_fd(int fd, t_list *str) {
 	t_list *newnode;
 
-	while (fd != (int)str->content_size && str) {
-		if (fd != (int)str->content_size && str->next == NULL) {
+	while (fd != (int)str->num && str) {
+		if (fd != (int)str->num && str->next == NULL) {
 			newnode = ft_lstnew("", 1);
-			newnode->content_size = fd;
+			newnode->num = fd;
 			str->next = newnode;
 		}
 		str = str->next;
