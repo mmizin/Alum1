@@ -1,13 +1,25 @@
-//
-// Created by Nikolay MIZIN on 1/28/18.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmizin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/03/10 21:12:38 by nmizin            #+#    #+#             */
+/*   Updated: 2018/03/10 21:17:33 by nmizin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-t_list *f_multi_fd(int fd, t_list *str) {
+t_list	*f_multi_fd(int fd, t_list *str)
+{
 	t_list *newnode;
 
-	while (fd != (int)str->num && str) {
-		if (fd != (int)str->num && str->next == NULL) {
+	while (fd != (int)str->num && str)
+	{
+		if (fd != (int)str->num && str->next == NULL)
+		{
 			newnode = ft_lstnew("", 1);
 			newnode->num = fd;
 			str->next = newnode;
@@ -17,8 +29,7 @@ t_list *f_multi_fd(int fd, t_list *str) {
 	return (str);
 }
 
-
-int f_sm_init(t_list *push, char **line)
+int		f_sm_init(t_list *push, char **line)
 {
 	char *t;
 	char *p;
@@ -35,7 +46,7 @@ int f_sm_init(t_list *push, char **line)
 	return (0);
 }
 
-int f_read(char *new, int fd, t_list *push, char **line)
+int		f_read(char *new, int fd, t_list *push, char **line)
 {
 	int		rd;
 	char	*str;
@@ -52,16 +63,15 @@ int f_read(char *new, int fd, t_list *push, char **line)
 	return ((rd == -1) ? -1 : 0);
 }
 
-int get_next_line(const int fd, char **line)
+int		get_next_line(const int fd, char **line)
 {
 	char				new[BUFF_SIZE + 1];
 	static	t_list		*main;
 	t_list				*push;
 
-
 	if (!line || fd < 0 || fd > 4096)
 		return (-1);
-	if(!main)
+	if (!main)
 		main = ft_lstnew("", fd);
 	push = f_multi_fd(fd, main);
 	if (f_read(new, fd, push, line) == 1)

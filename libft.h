@@ -24,10 +24,6 @@
 # define RES "\x1B[0m"
 
 void				ft_bzero(void *s, size_t n);
-
-
-
-
 char				*ft_strchr(const char *s, int c);
 void				ft_strclr(char *s);
 char				*ft_strcpy(char *dst, const char *src);
@@ -45,8 +41,6 @@ void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				ft_memdel(void **ap);
 
-
-
 typedef struct		s_list
 {
 	char			*content;
@@ -56,16 +50,12 @@ typedef struct		s_list
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 
-int		f_valid(char *str);
-int		get_next_line(const int fd, char **line);
-int		ft_atoi(const char *str);
-int		f_w_e_l(char c, int length);
-void print_board(t_list *list);
-t_list *make_struct(char *str, t_list *list);
-int 	check_answer(char *str);
-
-
-
-
+int					f_valid(char *str);
+int					get_next_line(const int fd, char **line);
+int					ft_atoi(const char *str);
+int					f_w_e_l(char c, int length);
+void				print_board(t_list *list);
+t_list				*make_struct(char *str, t_list *list);
+int					check_answer(char *str);
 
 #endif

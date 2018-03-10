@@ -1,11 +1,21 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_board.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmizin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/03/10 21:05:54 by nmizin            #+#    #+#             */
+/*   Updated: 2018/03/10 21:06:01 by nmizin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-
-int 	check_answer(char *str)
+int				check_answer(char *str)
 {
 	int res;
+
 	if (f_valid(str))
 	{
 		res = ft_atoi(str);
@@ -17,7 +27,7 @@ int 	check_answer(char *str)
 	return (0);
 }
 
-static int find_max(t_list *list)
+static	int		find_max(t_list *list)
 {
 	int b_num;
 
@@ -31,8 +41,7 @@ static int find_max(t_list *list)
 	return (b_num);
 }
 
-
-static int f_beauty_wright(int num)
+static	int		f_beauty_wright(int num)
 {
 	int sum;
 	int max_ind;
@@ -44,7 +53,7 @@ static int f_beauty_wright(int num)
 	return (center);
 }
 
-static void f_heandler(int center, t_list *list, int max)
+static	void	f_heandler(int center, t_list *list, int max)
 {
 	int c;
 	int print_num;
@@ -68,18 +77,12 @@ static void f_heandler(int center, t_list *list, int max)
 	}
 }
 
-void print_board(t_list *list)
+void			print_board(t_list *list)
 {
 	int max;
 	int center;
 
-	
 	max = find_max(list);
-	//printf("MAX:%d\n", max);
 	center = f_beauty_wright(max);
 	f_heandler(center, list, max);
-
 }
-
-
-
